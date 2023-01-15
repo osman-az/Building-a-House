@@ -1,0 +1,308 @@
+// IMPORTACIONES
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@200&family=Oswald&family=Roboto+Condensed:wght@400;700&display=swap');
+
+// DECLARACIÓN DE VARIABLES
+$naranjaGradientA: linear-gradient(90deg, rgba(253, 103, 25, 1) 0%, rgba(222, 61, 11, 1) 100%);
+$naranjaGradientB: linear-gradient(90deg, rgba(222, 61, 11, 1) 0%, rgba(247, 106, 32, 1) 100%);
+$naranjaGradientC: radial-gradient(circle, rgba(222, 61, 13, 1) 83%, rgba(247, 106, 32, 1) 100%);
+$colorFondoDerecho: #e2e6e7;
+$colorFondoIzquierdo: linear-gradient(90deg, rgba(211, 214, 214, 1) 0%, rgba(226, 230, 231, 1) 100%);
+
+// OBJETIVO 1
+// MAPAS
+$coloresImpar: (
+    "color-1": #ff671a,
+    "color-3": #272c31,
+);
+
+$coloresPar: (
+    "color-2": #f33501,
+    "color-4": #535b64,
+);
+
+// MIXIN SENCILLOS
+
+// OBJETIVO 4
+@mixin tituloPrincipal {
+    color: map-get($map: $coloresImpar, $key: color-1);
+    width: 70%;
+    font-size: 11em;
+    font-weight: 700;
+    line-height: 90%;
+}
+
+// OBJETIVO 5
+@mixin cartas {
+
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+
+    h3 {
+        width: 80%;
+        font-size: 5em;
+        letter-spacing: 4px;
+        font-family: 'Anton', sans-serif;
+    }
+
+    h5 {
+        width: 80%;
+        font-size: 1.5em;
+        font-family: 'Oswald', sans-serif;
+        font-weight: 300;
+    }
+
+    p {
+        width: 80%;
+        line-height: 157%;
+    }
+
+    img {
+        width: 22%;
+        position: relative;
+        right: 29%;
+        border-radius: 150px;
+        border: 2px;
+        transition: all 0.3s 0s ease;
+        cursor: pointer;
+
+        &:active {
+            transform: scale(0.95);
+            border: 2px solid white;
+        }
+    }
+}
+
+// GENERALES
+* {
+    font-family: 'Roboto Condensed', sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+// HEADER
+header {
+    height: 6vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    #logo {
+        width: 4%;
+        margin-left: 4%;
+    }
+
+    div {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 50%;
+
+        #contenedor-nav {
+            width: 80%;
+
+            ul {
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+                align-items: center;
+
+                li {
+                    font-size: 1.2em;
+                    font-weight: 500;
+                    width: 20%;
+                    margin-right: 2%;
+                    list-style-type: none;
+                    transition: all 0.5s 0s ease;
+                    cursor: pointer;
+
+                    &:hover {
+                        transform: scale(1.1);
+                        color: map-get($map: $coloresPar, $key: color-2);
+                    }
+                }
+            }
+        }
+
+        #contenedor-redes {
+            width: 20%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            align-items: center;
+
+            img {
+                width: 30px;
+                border-radius: 5px;
+                transition: all 0.5s 0s ease;
+                cursor: pointer;
+
+                &:hover {
+                    transform: scale(1.1);
+                    border: 3px solid map-get($map: $coloresPar, $key: color-2);
+                }
+            }
+        }
+    }
+}
+
+// MAIN
+main {
+    height: 165vh;
+
+    #contenedor-banner {
+        height: 95vh;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 1fr;
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+
+        div:nth-child(1) {
+            background: $colorFondoIzquierdo;
+            grid-area: 1 / 1 / 2 / 2;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            // OBJETIVO 4
+            h1 {
+                @include tituloPrincipal();
+            }
+
+            p {
+                font-style: italic;
+                margin-top: 3%;
+                margin-bottom: 3%;
+                width: 70%;
+            }
+
+            div {
+                width: 70%;
+                height: 5vh;
+                display: flex;
+                flex-direction: row;
+
+                input {
+                    width: 75%;
+                    border-radius: 0px;
+                    border: 0px;
+                    font-size: 1.5em;
+                    padding-left: 2%;
+                }
+
+                button {
+                    background: $naranjaGradientA;
+                    transition: all 0.4s 0s ease;
+                    font-family: 'Montserrat', sans-serif;
+                    text-transform: uppercase;
+                    color: white;
+                    font-size: 1.1em;
+                    letter-spacing: 2px;
+                    width: 25%;
+                    border-radius: 0px;
+                    border: 0px;
+                    cursor: pointer;
+
+                    &:hover {
+                        background: $naranjaGradientB;
+                    }
+
+                    &:active {
+                        background: $naranjaGradientC;
+                        transform: scale(0.95);
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+
+        div:nth-child(2) {
+            background: $colorFondoDerecho url(../IMG/fondo.jpg) center center/contain no-repeat;
+            grid-area: 1 / 2 / 2 / 3;
+        }
+    }
+
+    #contenedor-secciones {
+        height: 70vh;
+        display: grid;
+        grid-template-columns: 0.3fr repeat(4, 1fr) 0.3fr;
+        grid-template-rows: 0.15fr 1fr 0.1fr;
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+
+        // $j: 1;
+        // @each $colorFondoImpar in map-values($map: $coloresImpar) {
+        //     >div:nth-child(#{$j}) {
+        //         background-color: $colorFondoImpar;
+        //     }
+        //     $j: $j + 2;
+        // }
+
+        // $k: 2;
+        // @each $colorFondoPar in map-values($map: $coloresPar) {
+        //     >div:nth-child(#{$k}) {
+        //         background-color: $colorFondoPar;
+        //     }
+        //     $k: $k + 2;
+        // }
+
+        // OBJETIVO 3
+        @for $i from 1 through 4 {
+
+            // OBJETIVO 2
+            @if($i==1) {
+                >div:nth-child(#{$i}) {
+                    background-color: map-get($map: $coloresImpar, $key: "color-1");
+                }
+            }
+
+            @if($i==2) {
+                >div:nth-child(#{$i}) {
+                    background-color: map-get($map: $coloresPar, $key: "color-2");
+                }
+            }
+
+            @if($i==3) {
+                >div:nth-child(#{$i}) {
+                    background-color: map-get($map: $coloresImpar, $key: "color-3");
+                }
+            }
+
+            @if($i==4) {
+                >div:nth-child(#{$i}) {
+                    background-color: map-get($map: $coloresPar, $key: "color-4");
+                }
+            }
+        }
+
+        // OBJETIVO 5
+        div:nth-child(1) {
+            grid-area: 2 / 2 / 3 / 3;
+            @include cartas();
+        }
+
+        div:nth-child(2) {
+            grid-area: 2 / 3 / 3 / 4;
+            @include cartas();
+        }
+
+        div:nth-child(3) {
+            grid-area: 2 / 4 / 3 / 5;
+            @include cartas();
+        }
+
+        div:nth-child(4) {
+            grid-area: 2 / 5 / 3 / 6;
+            @include cartas();
+        }
+    }
+}
+
+// FOOTER
+@import "footerOsman";
