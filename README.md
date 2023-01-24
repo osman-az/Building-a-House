@@ -15,3 +15,8 @@ Construction of a Web Frontend, using the **SASS** preprocessor that allows the 
 4. A mixin was set to style the title *"Building a House?"*.
 
 5. Mixin to style the elements inside the colored boxes.
+
+### Technologies:
+                    
+| ![HTML 5](https://i.imgur.com/QmbHEsR.png "HTML 5") HTML 5 | ![CSS 3](https://i.imgur.com/O6lJ8iB.png "CSS 3") CSS 3 | ![SASS](https://i.imgur.com/VQyrdlo.png "SASS") SASS
+| ------------- | ------------- | ------------- |
